@@ -25,29 +25,25 @@ jwt.verify( token, process.env.SEED, (err, decoded) =>{
 
 };
 
-// =======================
-// verrifica AdminRol
-//========================
+// =====================
+// Verifica AdminRole
+// =====================
+let verificaAdmin_Role = (req, res, next) => {
 
-let verificaAdmin_Role = (req, res , next) => {
-    
     let usuario = req.usuario;
 
-    if (usuario.rol === 'ADMIN_ROLE' ){
+    if (usuario.role === 'ADMIN_ROLE') {
         next();
-    }else{
+    } else {
+
         return res.json({
             ok: false,
             err: {
-                message : ' El usuario no es administrador'
+                message: 'El usuario no es administrador'
             }
         });
-        next();
     }
-    next();
-
 };
-
 
 module. exports = {
     verificaToken,
