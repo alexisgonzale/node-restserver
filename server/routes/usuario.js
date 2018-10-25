@@ -9,7 +9,7 @@ const { verificaToken, verificaAdmin_Role } = require('../middlewares/autenticac
 
 const app = express();
 
-app.get('/usuario', verificaToken, (req, res) => {git 
+app.get('/usuario', verificaToken, (req, res) => {
 
     let desde = req.query.desde || 0;
     desde = Number(desde);
@@ -126,7 +126,7 @@ app.get('/usuario', verificaToken, (req, res) => {git
            ok: true,
            usuario: usuarioBorrado 
         });
-    })
+    });
   });
 
 
